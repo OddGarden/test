@@ -1,0 +1,8 @@
+.navbar {
+  margin-bottom: 0.5rem;
+}
+.form-control:focus + .form-label, .form-select:focus + .form-label {
+  color: green;
+}
+
+
