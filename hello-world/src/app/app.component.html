@@ -1,104 +1,22 @@
-<div class="container">
+
   <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand">Software Request Form</a>
+      <a class="navbar-brand"
+        [routerLink]="['/home']">Software Request Form</a>
+      <a class="navbar-brand"
+        [routerLink]="['/new-request']">New Project Request</a>
+      <a class="navbar-brand"
+        [routerLink]="['/change-existing-request']">Change Existing Project</a>
       <form class="d-flex">
         <button class="btn btn-outline-danger" type="text">Exit</button>
       </form>
     </div>
   </nav>
 
-  <form class="row g-3">
-    <div class="form-floating col-md-6">
-      <input type="text" class="form-control" id="ntCredentials" placeholder="NT Credentials">
-      <label class="form-label" for="floatingInput"> NT Credentials</label>
-    </div>
-    <div class="form-floating col-md-6">
-      <input type="text" class="form-control" id="emailInput" placeholder="email-address">
-      <label class="form-label" for="floatingInput">Email</label>
-    </div>
-    <div class="form-floating col-md-6">
-      <input type="text" class="form-control" id="firstName" placeholder="FirstName">
-      <label class="form-label" for="floatingInput">First Name</label>
-    </div>
-    <div class="form-floating col-md-6">
-      <input type="text" class="form-control" id="lastName" placeholder="LastName">
-      <label class="form-label" for="floatingInput">Last Name</label>
-    </div>
-    <div class="form-floating col-md-6">
-      <input type="text"
-              placeholder="Date"
-              class="form-control"
-              formControlName="dateFull"
-              [bsConfig]="{ dateInputFormat: 'MMMM Do YYYY', isAnimated: true }"
-              bsDatepicker>
-      <label class="form-label" for="desiredCompletionDate" class="form-label">Desired Completion Date</label>
-    </div>
-    <div class="form-floating col-md-6">
-      <select class="form-select" id="requestType" aria-label="Request Type Floating Label">
-        <option selected></option>
-        <option value="1">Web Application</option>
-        <option value="2">Crystal Reports</option>
-      </select>
-      <label class="form-label" for="requestType">Type of Request</label>
-    </div>
-    <div class="form-floating col-md-6">
-      <select class="form-select" id="priorityGroup" aria-label="Priority GroupFloating Label">
-        <option selected></option>
-        <option value="1">Low</option>
-        <option value="2">Medium</option>
-        <option value="3">High</option>
-      </select>
-      <label class="form-label" for="requestType">Priority</label>
-    </div>
-    <div class="form-floating col-md-6">
-      <select class="form-select" id="roleGroup" aria-label="Role Group Floating Label">
-        <option selected></option>
-        <option value="1">IT</option>
-        <option value="2">Dosimetry</option>
-        <option value="3">Physics</option>
-      </select>
-      <label class="form-label" for="requestType">Role Group</label>
-    </div>
-    <div class="form-floating col-md-6">
-      <select class="form-select" id="impactGroup" aria-label="Impact Group Floating Label">
-        <option selected></option>
-        <option value="1">IT</option>
-        <option value="2">Dosimetry</option>
-        <option value="3">Physics</option>
-      </select>
-      <label class="form-label" for="requestType">Impact Group</label>
-    </div>
-    <div class="form-floating col-md-6">
-      <select class="form-select" id="patientImpact" aria-label="Patient Impact Floating Label">
-        <option selected></option>
-        <option value="1">Direct patient Care</option>
-        <option value="2">Checks on patient/option>
-        <option value="3">Patient information</option>
-      </select>
-      <label class="form-label" for="requestType">Patient Impact</label>
-    </div>
-    <div class="form-floating">
-      <input type="text" class="form-control" id="projectTitle" placeholder="Project Title">
-      <label class="form-label" for="projectTitle">Project Title</label>
-    </div>
-    <div class="form-floating col-md-6">
-      <textarea class="form-control" placeholder="Provide project details here" id="projectDesc" style="height: 100px"></textarea>
-      <label class="form-label" for="projectDescription">Project Description</label>
-    </div>
-    <div class="form-floating col-md-6">
-      <textarea class="form-control" placeholder="Provide stakeholder details here" id="stakeholder" style="height: 100px"></textarea>
-      <label class="form-label" for="stakeholders">Stakeholder</label>
-    </div>
-    <div class="input-group mb-3">
-      <input type="file" class="form-control" id="fileUpload">
-      <label class="input-group-text" for="fileUpload">Attach</label>
-    </div>
-    <div class="d-grid gap-2">
-      <button class="btn btn-primary" type="button">Submit</button>
-    </div>
-
-  </form>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
 
 
-</div>
+
+

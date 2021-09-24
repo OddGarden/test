@@ -1,0 +1,109 @@
+<form class="row g-3" [formGroup]='srfFormGroup'>
+  <div class="form-floating col-md-6">
+    <input type="text" class="form-control" id="ntCredentials"
+        placeholder="NT Credentials" formControlName="ntCredentials"
+        [ngClass]="{'is-invalid': emailMessage}">
+    <label class="form-label" for="ntCredentials" > NT Credentials</label>
+    <span class="invalid-feedback">
+        <span *ngIf ="srfFormGroup.get('ntCredentials')?.errors?.required"> Please enter your NT Credentials</span>
+    </span>
+  </div>
+  <div class="form-floating col-md-6">
+    <input type="text" class="form-control" id="emailInput" placeholder="email-address"formControlName='email'>
+    <label class="form-label" for="floatingInput">Email</label>
+  </div>
+  <div class="form-floating col-md-6">
+    <input type="text" required class="form-control" id="firstName" placeholder="FirstName" formControlName='firstName'>
+    <label class="form-label" for="floatingInput">First Name</label>
+  </div>
+  <div class="form-floating col-md-6">
+    <input type="text"  required class="form-control" id="lastName" placeholder="LastName" formControlName='lastName'>
+    <label class="form-label" for="floatingInput">Last Name</label>
+  </div>
+  <div class="form-floating col-md-6">
+    <input type="text"
+            required
+            placeholder="Date"
+            class="form-control"
+            formControlName="dateFull"
+            [minDate]="minDate"
+            #dp="bsDatepicker"
+            bsDatepicker
+            [bsConfig]="{dateInputFormat: 'MMMM Do YYYY', isAnimated: true, containerClass: 'theme-blue' }"
+            formControlName='desiredCompletionDate'>
+    <label class="form-label" for="desiredCompletionDate" class="form-label">Desired Completion Date</label>
+  </div>
+  <div class="form-floating col-md-6">
+    <select class="form-select" required id="requestType" aria-label="Request Type Floating Label" formControlName='requestType'>
+      <option selected></option>
+      <option value="1">Crystal Reports</option>
+      <option value="2">Data Request</option>
+      <option value="3">PC Application</option>
+      <option value="4">Web Application</option>
+      <option value="5">Web Form</option>
+    </select>
+    <label class="form-label" for="requestType">What type of request is this?</label>
+  </div>
+  <div class="form-floating col-md-6">
+    <select class="form-select" id="priorityGroup" aria-label="Priority GroupFloating Label" formControlName='priorityGroup'>
+      <option selected></option>
+      <option value="1">Low</option>
+      <option value="2">Medium</option>
+      <option value="3">High</option>
+    </select>
+    <label class="form-label" for="priorityGroup">Priority</label>
+  </div>
+  <div class="form-floating col-md-6">
+    <select class="form-select" id="roleGroup" aria-label="Role Group Floating Label" formControlName='roleGroup'>
+      <option selected></option>
+      <option value="1">IT</option>
+      <option value="2">Dosimetry</option>
+      <option value="3">Physics</option>
+    </select>
+    <label class="form-label" for="roleGroup">Role Group</label>
+  </div>
+  <div class="form-floating col-md-6">
+    <select class="form-select" id="impactGroup" aria-label="Impact Group Floating Label" formControlName='impactGroup'>
+      <option selected></option>
+      <option value="1">Patient Care</option>
+      <option value="2">Workflow / Operations/option>
+      <option value="3">Physics / Dosimetry</option>
+      <option value="4">Research</option>
+    </select>
+    <label class="form-label" for="impactGroup">What GROUP does this impact?</label>
+  </div>
+  <div class="form-floating col-md-6">
+    <select class="form-select" id="patientImpact" aria-label="Patient Impact Floating Label" formControlName='patientImpact'>
+      <option selected></option>
+      <option value="1">Direct patient Care</option>
+      <option value="2">Checks on patient/option>
+      <option value="3">Patient information</option>
+    </select>
+    <label class="form-label" for="patientImpact">How does this impact PATIENTS?</label>
+  </div>
+  <div class="form-floating">
+    <input type="text" required class="form-control" id="projectTitle" placeholder="Project Title" formControlName='projectTitle'>
+    <label class="form-label" for="projectTitle">Project Title</label>
+  </div>
+  <div class="form-floating col-md-6">
+    <textarea class="form-control" required placeholder="Provide project details here" id="projectDesc" formControlName='projectDescription' style="height: 100px"></textarea>
+    <label class="form-label" for="projectDescription">Project Description</label>
+  </div>
+  <div class="form-floating col-md-6">
+    <textarea class="form-control" placeholder="Provide stakeholder details here" id="stakeholder" formControlName='stakeholders' style="height: 100px"></textarea>
+    <label class="form-label" for="stakeholders">Stakeholders</label>
+  </div>
+  <div class="input-group mb-3">
+    <input type="file" class="form-control" id="fileUpload" formControlName='fileUpload'>
+    <label class="input-group-text" for="fileUpload">Attach</label>
+  </div>
+  <div class="d-grid gap-2">
+    <button class="btn btn-primary" type="button">Submit</button>
+  </div>
+
+</form>
+
+<br> Dirty: {{srfFormGroup.dirty}}
+<br> Touched: {{ srfFormGroup.touched}}
+<br> Valid: {{srfFormGroup.valid}}
+<br>Value: {{srfFormGroup.value | json}}
